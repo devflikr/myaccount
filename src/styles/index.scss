@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+    min-height: 100dvh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+a:is(:hover, :focus-visible) {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+// .tippy-box[data-theme~='tippy-theme'] {
+//     background-color: #000000aa;
+//     backdrop-filter: blur(2px);
+//     padding: 4px 8px;
+//     border-radius: 5px;
+//     border: 1px solid #fff1;
+//     box-shadow: 0 0 10px 5px #0007;
+//     font-weight: 600;
+// }
+
+
+
+
+
+.oasismenu {
+    background-color: #0e101ecc;
+    border-color: #fff1;
+    backdrop-filter: blur(4px);
+    max-height: calc(100dvh - 100px);
+
+    &>div:has(> .oasisitem) {
+        padding-block: 1px;
+    }
+
+    .oasisitem {
+        background-color: #ffffff06;
+
+        &:disabled {
+            background-color: #0004;
+        }
+
+        &:not(:disabled).oasishovered {
+            background-color: #fff2;
+        }
+    }
+
+    .oasisTopic {
+        color: #ddd;
+        font-size: 14px;
+        font-weight: 600;
+        width: 100%;
+        padding: 8px 16px;
+    }
+}
