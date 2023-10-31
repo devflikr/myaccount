@@ -3,7 +3,9 @@ import { useAuthCurrentUser } from "react-devflikrauth-hooks";
 import SidePanel from "./layouts/SidePanel";
 import Header from "./layouts/Header";
 import Initialize from "./FlikrUI/Initialize";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/Home";
+import PersonalInfoPage from "./pages/PersonalInfo";
 
 function App() {
 
@@ -24,21 +26,28 @@ function App() {
 
 export default App;
 
-const MainApp = () => (
-    <>
+const MainApp = () => {
+    const [user] = useAuthCurrentUser();
+    return (<>
         <Header />
-        <SidePanel>
-        </SidePanel>
-        <Link to="./">Some link</Link>
-        <Link to="./some-path-1">Some link</Link>
-        <Link to="./some-path-2">Some link</Link>
-        <Link to="./some-path-3">Some link</Link>
-        <Link to="./some-path-4">Some link</Link>
-        <Link to="./some-path-5">Some link</Link>
-        <Link to="./some-path-6">Some link</Link>
-        <Link to="./some-path-7">Some link</Link>
+        <div className="flex flex-nowrap items-start min-h-[100dvh] relative">
+            {user && <>
+                <SidePanel />
+                <div className="flex-[4] py-5 px-20">
+                    <main className="relative w-full max-w-3xl">
+                        <Routes>
+                            <Route path="/personal-info" element={<PersonalInfoPage />} />
+                            <Route path="/" element={<HomePage />} />
+                        </Routes>
+                    </main>
+                </div>
+            </>}
+        </div>
     </>
-);
+    )
+};
 
 
-const InitializeApp = ({ index }: { index?: number }) => (<><Initialize index={index} /><MainApp /></>);
+const InitializeApp = ({ index }: { index?: number }) => {
+    return (<><Initialize index={index} /><MainApp /></>);
+};

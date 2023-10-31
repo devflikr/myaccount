@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { setCurrentAuthIndex } from "devflikrauth";
+import { useAuthCurrentUser } from 'react-devflikrauth-hooks';
 
 export interface InitializeProps {
     index?: number;
@@ -10,12 +11,22 @@ function Initialize({ index }: InitializeProps) {
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
     const params = useParams();
+    const [user] = useAuthCurrentUser();
 
     useEffect(() => {
         if (index !== undefined && !Number.isNaN(index)) {
             setCurrentAuthIndex(index);
         }
     }, [index]);
+
+    useEffect(() => {
+        let base: HTMLBaseElement | null = document.head.querySelector("base");
+        if (!base) {
+            base = document.createElement("base");
+            document.head.appendChild(base);
+        }
+        base.href = user ? `/u/${user.index}` : "/";
+    }, [user]);
 
     useEffect(() => {
         if (params.authUser) {
@@ -38,7 +49,7 @@ function Initialize({ index }: InitializeProps) {
             }
         }
 
-        
+
     }, [navigate, searchParams, setSearchParams]);
 
     return null;

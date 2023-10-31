@@ -26,7 +26,8 @@
         "singup",
         "svgr",
         "tailwindcss",
-        "tippyjs"
+        "tippyjs",
+        "Usergroup"
     ],
     "editor.fontLigatures": false,
     "tailwindCSS.experimental.classRegex": [

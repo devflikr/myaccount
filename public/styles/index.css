@@ -68,7 +68,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-:is(:root, html, body)::-webkit-scrollbar {
+/* :is(:root, html, body)::-webkit-scrollbar {
     display: none;
     appearance: none;
-}
+} */

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useAuthCurrentUser } from "react-devflikrauth-hooks";
 import { LuChevronDown, LuChevronUp } from "react-icons/lu";
 import { twMerge } from "tailwind-merge";
-import UserAccounts from './UserAccounts';
+import ExtendUserAccounts from './ExtendUserAccounts';
 
 export interface HeaderAvatarProps {
     children?: React.ReactNode;
@@ -13,7 +13,8 @@ export interface HeaderAvatarProps {
 function HeaderAvatar({ children }: HeaderAvatarProps) {
     const [user, loading] = useAuthCurrentUser();
 
-    const [extend, setExtend] = useState(true);
+    const [extend, setExtend] = useState(false);
+
 
     if (loading) return null;
 
@@ -22,23 +23,16 @@ function HeaderAvatar({ children }: HeaderAvatarProps) {
     return (<>
         <Tippy content={`${user.firstname} ${user.lastname || ""}`.trim()}>
             <button className={twMerge(classNames(
-                "rounded-full overflow-hidden w-10 h-10 hover:w-16 flex flex-nowrap items-center justify-between focus-visible:bg-[#0002] hover:bg-[#0002] transition-all p-1 text-lg group",
+                "rounded-full overflow-hidden w-16 h-10 flex flex-nowrap items-center justify-between focus-visible:cs-bg-3 hover:cs-bg-3 transition-all p-1 text-lg group",
                 {
-                    "w-16 bg-indigo-100 shadow-[0_0_0_2px] shadow-indigo-200": extend,
+                    "cs-bg-3 shadow-[0_0_0_2px] shadow-[#fff4]": extend,
                 }
-            ))} onClick={() => setExtend(!extend)}>
+            ))} onClick={() => setExtend(bool => !bool)}>
                 <img src={user.profile} alt={user.username} className="h-full rounded-full" />
-                <span className={twMerge(classNames(
-                    "group-hover:scale-100 scale-0 transition-all mr-1",
-                    {
-                        "scale-100": extend,
-                    }
-                ))}>{extend ? <LuChevronUp /> : <LuChevronDown />}</span>
+                <span className="mr-0">{extend ? <LuChevronUp /> : <LuChevronDown />}</span>
             </button>
         </Tippy >
-        {extend && <div className="fixed top-16 right-3 py-3 max-h-[calc(100dvh_-_76px)] bg-white shadow-xl border border-gray-200 shadow-gray-300 w-[calc(100dvw_-_24px)] max-w-sm z-20 rounded-xl">
-            <UserAccounts />
-        </div>}
+        <ExtendUserAccounts extend={extend} setExtend={setExtend} />
     </>);
 }
 

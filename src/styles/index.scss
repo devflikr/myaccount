@@ -2,21 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-    min-height: 100dvh;
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
+
+
 
 a:is(:hover, :focus-visible) {
     text-decoration: underline;
 }
 
 
+@layer utilities {
+    .cs-bg-1 {
+        @apply bg-[#212121];
+    }
 
+    .cs-bg-2 {
+        @apply bg-[#282828];
+    }
+
+    .cs-bg-3 {
+        @apply bg-[#2F2E45];
+    }
+
+    .cs-bg-3a {
+        @apply bg-[#fff1];
+    }
+
+    .cs-bg-3b {
+        @apply bg-[#fff2];
+    }
+
+    .cs-bg-3c {
+        @apply bg-[#fff3];
+    }
+
+    .cs-bg-3d {
+        @apply bg-[#fff4];
+    }
+
+    .cs-bg-3e {
+        @apply bg-[#fff5];
+    }
+
+    .cs-bg-3f {
+        @apply bg-[#fff6];
+    }
+
+    .cs-bg-4 {
+        @apply bg-[#FF3F2E];
+    }
+
+    .cs-tx-4 {
+        @apply text-[#FF3F2E];
+    }
+
+    .cs-drop-1 {
+        @apply shadow-[0_0_0_1px];
+    }
+
+    .cs-drop-2 {
+        @apply shadow-[0_0_0_2px];
+    }
+
+    .cs-drop-3 {
+        @apply shadow-[0_0_0_3px];
+    }
+
+    .cs-drop-c1 {
+        @apply shadow-[#212121];
+    }
+
+    .cs-drop-c2 {
+        @apply shadow-[#282828];
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .all-center {
+        @apply justify-center items-center;
+    }
+
+    .cs-b-round {
+        @apply w-10 h-10 rounded-full hover:cs-bg-3b focus-within:cs-bg-3b text-xl transition-all inline-flex all-center;
+    }
+}
 
 
 
@@ -63,4 +138,25 @@ a:is(:hover, :focus-visible) {
         width: 100%;
         padding: 8px 16px;
     }
+}
+
+
+
+.scroll-bar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+    background: rgb(218, 220, 224);
+    background-clip: padding-box;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    box-shadow: none;
+    min-height: 50px;
+}
+
+.scroll-bar::-webkit-scrollbar-track,
+.scroll-bar::-webkit-scrollbar-track:hover {
+    background: none;
+    border: none;
 }

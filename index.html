@@ -7,6 +7,36 @@
 
     <!-- <link rel="manifest" href="/manifest.json" /> -->
 
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        body {
+            background-color: #07071F;
+            /* background-image: linear-gradient(135deg, #07071F, #110c1b, #17152F); */
+            background-image: radial-gradient(circle at top left, #5582FC22, transparent, transparent, transparent, transparent),
+                radial-gradient(circle at top right, #5582FC22, transparent, transparent, transparent);
+
+            /* background-image: url("/assets/black.jpg"); */
+            background-position: center top;
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #root {
+            min-height: 100dvh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            /* background-color: #0009; */
+            backdrop-filter: blur(4px);
+        }
+    </style>
+
     <meta charset="utf-8" />
     <link rel="canonical" href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, height=device-height" />
@@ -22,12 +52,11 @@
 
     <link rel="stylesheet" href="/styles/index.css">
 
-    <title>DevFlikr</title>
+    <title base="DevFlikr Account">DevFlikr Account</title>
 </head>
 
 <body>
     <div id="root"></div>
-    <div id="overlay"><span /></div>
     <script type="module" src="/src/main.tsx"></script>
 </body>
 
