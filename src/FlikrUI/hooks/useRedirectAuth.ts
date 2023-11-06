@@ -15,4 +15,4 @@ function useRedirectAuth({ app, path, redirect }: RedirectAuthParams) {
     };
 }
 
-export default useRedirectAuth
+export default useRedirectAuth;

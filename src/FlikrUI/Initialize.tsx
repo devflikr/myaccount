@@ -15,7 +15,7 @@ function Initialize({ index }: InitializeProps) {
 
     useEffect(() => {
         if (index !== undefined && !Number.isNaN(index)) {
-            setCurrentAuthIndex(index);
+            console.log(setCurrentAuthIndex(index));
         }
     }, [index]);
 
@@ -31,7 +31,6 @@ function Initialize({ index }: InitializeProps) {
     useEffect(() => {
         if (params.authUser) {
             const auth = parseInt(params.authUser || "-1");
-
             if (!Number.isNaN(auth) && auth !== -1) {
                 setCurrentAuthIndex(auth);
             }

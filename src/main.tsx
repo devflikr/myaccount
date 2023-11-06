@@ -13,6 +13,10 @@ import 'tippy.js/animations/shift-away.css';
 import './styles/index.scss';
 import { Toaster } from 'react-hot-toast';
 
+import { tailspin } from 'ldrs';
+
+tailspin.register();
+
 tippy.setDefaultProps({
     arrow: false,
     animation: "shift-away",

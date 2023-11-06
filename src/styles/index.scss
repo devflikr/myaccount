@@ -9,6 +9,11 @@ a:is(:hover, :focus-visible) {
     text-decoration: underline;
 }
 
+select,option {
+    all: inherit;
+    color-scheme: dark;
+    background: #07071F;
+}
 
 @layer utilities {
     .cs-bg-1 {

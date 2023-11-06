@@ -8,7 +8,7 @@ import { useDocumentTitle } from 'react-unique-hooks';
 function HomePage() {
     const [user] = useAuthCurrentUser();
 
-    useDocumentTitle("My Account");
+    useDocumentTitle("");
 
     if (!user) return null;
 
@@ -24,18 +24,32 @@ function HomePage() {
             </header>
             <ContentGrid col="1" className="my-10 gap-5">
                 <HomeItem
-                    to="personal-info"
-                    image="/assets/personal-info.png"
+                    to="profile"
+                    image="/assets/profile.png"
                     title="Personal Info"
                     desc="Access and control your personal information, including the option to choose what details, such as contact information, are visible to others for easy communication. Additionally, view a concise overview of your profiles."
-                    footer="Edit your information"
+                    footer="Edit your profile"
+                />
+                <HomeItem
+                    to="login"
+                    image="/assets/login.png"
+                    title="Login Info"
+                    desc="Manage and oversee your login information, with the ability to determine which details are visible to others for seamless access. Additionally, gain a streamlined summary of your profiles for quick reference."
+                    footer="Edit your username"
+                />
+                <HomeItem
+                    to="contact"
+                    image="/assets/contact.png"
+                    title="Contact Info"
+                    desc="Administer and oversee your contact information, allowing you to decide which details are visible to others for efficient communication. Furthermore, access a condensed overview of your contact details for convenient reference."
+                    footer="Edit your phone"
                 />
                 <HomeItem
                     to="security"
                     image="/assets/security.png"
                     title="Security"
                     desc="Manage your security settings and options. You can customize your preferences to ensure your information is protected and secure. Additionally, review a summary of your current security measures."
-                    footer="Review account security"
+                    footer="Edit your password"
                 />
                 <HomeItem
                     to="devices"
@@ -45,7 +59,14 @@ function HomePage() {
                     footer="View connected devices"
                 />
                 <HomeItem
-                    to="https://support.devflikr.com/myaccount?ref=myaccount"
+                    to="account"
+                    image="/assets/account.png"
+                    title="Account"
+                    desc="Explore your connected devices and take action if needed. You have the ability to review and remove any devices that are linked to your account for added control and security."
+                    footer="Manage your account"
+                />
+                <HomeItem
+                    to={`https://support.devflikr.com/u/${user.index}/myaccount?ref=myaccount`}
                     image="/assets/help-and-support.png"
                     title="Help and Support"
                     desc="Access resources for assistance with your account. Find helpful information and resources to address any concerns or questions you may have regarding your account. Additionally, explore options for contacting support if further assistance is needed."

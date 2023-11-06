@@ -1,9 +1,10 @@
 import React from 'react';
 import "./SidePanel.css";
-import { Contact2, Home, MonitorSmartphone, ShieldCheck } from 'lucide-react';
+import { BadgeCheck, Contact2, Home, Key, MonitorSmartphone, PhoneCall, ShieldCheck } from 'lucide-react';
 import SideButton from './SideButton';
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';
+import { useAuthCurrentUser } from 'react-devflikrauth-hooks';
 
 export interface SidePanelProps {
     className?: React.HTMLAttributes<HTMLDivElement>["className"],
@@ -19,7 +20,17 @@ export const SidePanelValues = [
     {
         name: "Personal Info",
         icon: <Contact2 />,
-        link: "personal-info",
+        link: "profile",
+    },
+    {
+        name: "Login Info",
+        icon: <Key />,
+        link: "login",
+    },
+    {
+        name: "Contact Info",
+        icon: <PhoneCall />,
+        link: "contact",
     },
     {
         name: "Security",
@@ -31,24 +42,33 @@ export const SidePanelValues = [
         icon: <MonitorSmartphone />,
         link: "devices",
     },
+    {
+        name: "Account",
+        icon: <BadgeCheck />,
+        link: "account",
+    },
 ];
 
 function SidePanel({ className, containerClass }: SidePanelProps) {
+    const [user] = useAuthCurrentUser();
+
+    if (!user) return null;
+
     return (
         <div className={twMerge(classNames(
-            "flex-1 max-w-xs sticky top-[72px] flex flex-col h-[calc(100dvh_-_72px)]",
+            "flex-1 max-w-xs sticky top-[72px] hidden flex-col h-[calc(100dvh_-_72px)] min-w-[220px] lg:flex",
             containerClass,
         ))}>
             <aside className={twMerge(classNames(
                 "overflow-auto w-full h-full py-5",
                 className
             ))}>
-                {SidePanelValues.map(item => <SideButton key={item.name} to={item.link} icon={item.icon} name={item.name}/>)}
+                {SidePanelValues.map(item => <SideButton key={item.name} to={item.link} icon={item.icon} name={item.name} />)}
             </aside>
             <div className="flex flex-nowrap pl-8 gap-8 mt-auto pb-2 text-xs">
-                <span>Privacy</span>
-                <span>Terms</span>
-                <span>Help</span>
+                <a href={`https://devflikr.com/u/${user.index}/privacy`} target="_blank" rel="noopener noreferrer">Privacy</a>
+                <a href={`https://devflikr.com/u/${user.index}/terms`} target="_blank" rel="noopener noreferrer">Terms</a>
+                <a href={`https://support.devflikr.com/u/${user.index}/myaccount?ref=myaccount`} target="_blank" rel="noopener noreferrer">Help</a>
             </div>
         </div>
     )

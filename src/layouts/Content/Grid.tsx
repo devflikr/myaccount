@@ -3,7 +3,7 @@ import React from 'react'
 import { twMerge } from 'tailwind-merge';
 
 export interface ContentGridProps extends React.HTMLAttributes<HTMLDivElement> {
-    col: 1 | "1" |
+    col?: 1 | "1" |
     2 | "2" |
     3 | "3" |
     4 | "4" |
