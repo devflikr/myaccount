@@ -1,4 +1,3 @@
-import React from 'react';
 import ContentGrid from '../../layouts/Content/Grid';
 import FullNamer from '../../components/FullNamer';
 import { useAuthCurrentUser } from 'react-devflikrauth-hooks';
