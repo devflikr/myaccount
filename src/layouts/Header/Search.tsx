@@ -1,19 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai';
-import uuid from '../../core/utils/uuid';
-import { AnimatePresence } from 'framer-motion';
-import searchQueries, { SearchQueries } from './searchQueries';
-import AnimatedListItem from '../../FlikrUI/lib/AnimatedList/AnimatedListItem';
-import { Link } from 'react-router-dom';
+// import { SearchQueries } from './searchQueries';
 
 
 function HeaderSearch() {
     const [query, setQuery] = useState("");
-    const [focus, setFocus] = useState(false);
+    const [, setFocus] = useState(false);
 
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const [results, setResults] = useState<SearchQueries[]>([]);
+    // const [results, setResults] = useState<SearchQueries[]>([]);
 
     // useEffect(() => {
     //     setResults(filterAndSort(searchQueries, query, "name"));
