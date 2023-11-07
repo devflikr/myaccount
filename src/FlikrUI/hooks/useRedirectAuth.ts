@@ -11,7 +11,7 @@ function useRedirectAuth({ app, path, redirect }: RedirectAuthParams) {
     const location = useLocation();
 
     return () => {
-        window.location.href = `https://devflikrauth.netlify.app/${path || ""}?app=${encodeURIComponent(app || "DevFlikr.com")}&redirect=${encodeURIComponent(redirect || `${window.location.origin}${location.pathname}`)}`;
+        window.location.href = `https://accounts.devflikr.com/${path || ""}?app=${encodeURIComponent(app || "DevFlikr.com")}&redirect=${encodeURIComponent(redirect || `${window.location.origin}${location.pathname}`)}`;
     };
 }
 
