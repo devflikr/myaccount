@@ -1,11 +1,10 @@
 // import React from 'react';
-import { AiOutlineClose, AiOutlineUserAdd, AiOutlineUsergroupDelete } from 'react-icons/ai';
-import { MdOutlineManageAccounts } from 'react-icons/md';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAuthCurrentUser, useAuthUsers, useSignOut } from "react-devflikrauth-hooks";
-import useRedirectAuth from '../hooks/useRedirectAuth';
+import useRedirectAuth from '../../hooks/useRedirectAuth';
 import UserLink from './UserLink';
 import { useRef } from 'react';
+import { UserCog, UserMinus, UserPlus, X } from 'lucide-react';
 
 export interface ExtendUserAccountsProps {
     extend: boolean;
@@ -44,7 +43,7 @@ function ExtendUserAccounts({ extend, setExtend }: ExtendUserAccountsProps) {
                 }}
                 ref={ref}
             >
-                <div className="flex flex-wrap items-center gap-5">
+                <div className="flex flex-nowrap items-center gap-3">
                     <div className="w-full min-w-[80px] max-w-[80px] aspect-square rounded-full overflow-hidden shadow-[0_0_0_2px] shadow-[#777]">
                         <img src={user.profile} alt={user.username} />
                     </div>
@@ -53,10 +52,10 @@ function ExtendUserAccounts({ extend, setExtend }: ExtendUserAccountsProps) {
                         <div className="text-gray-300">{user.email}</div>
                         <div className="text-xs font-bold text-gray-500">@{user.username}</div>
                     </div>
-                    <button type="button" className="cs-b-round self-start ml-auto" onClick={() => setExtend?.(false)}><AiOutlineClose /></button>
+                    <button type="button" className="cs-b-round self-start ml-auto min-w-[40px]" onClick={() => setExtend?.(false)}><X size={20} absoluteStrokeWidth /></button>
                 </div>
                 <div>
-                    <UserLink href={`/u/${user.index}`} text="Manage your Account" icon={<MdOutlineManageAccounts />} />
+                    <UserLink href={`/u/${user.index}`} text="Manage your Account" icon={<UserCog size={20} absoluteStrokeWidth />} />
                 </div>
                 {users.length - 1 !== 0 && <div className="w-full overflow-auto no-scrollbar sm:flex-1 relative rounded-xl">
                     <div className="flex flex-col justify-center items-center">
@@ -71,8 +70,8 @@ function ExtendUserAccounts({ extend, setExtend }: ExtendUserAccountsProps) {
                     </div>
                 </div>}
                 <div>
-                    <UserLink onClick={signinLink} text="Add another Account" icon={<AiOutlineUserAdd />} />
-                    <UserLink onClick={signOutLink} text="Remove All Sessions" icon={<AiOutlineUsergroupDelete />} />
+                    <UserLink onClick={signinLink} text="Add another Account" icon={<UserPlus size={20} absoluteStrokeWidth />} />
+                    <UserLink onClick={signOutLink} text="Remove All Sessions" icon={<UserMinus size={20} absoluteStrokeWidth />} />
                 </div>
             </motion.div>}
         </AnimatePresence>

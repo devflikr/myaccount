@@ -60,7 +60,7 @@ function DevicesPage() {
                 <img className="w-16 aspect-square" src="/assets/devices.png" alt="Devices" />
                 <h1 className="text-gray-300 font-medium text-center">
                     <span className="text-red-600 text-2xl font-bold">Devices</span><br />
-                    Secure your account by frequently updating your account password.
+                    Take control of your linked devices and remove any that you do not recognize.
                 </h1>
             </header>
             {current && (allSessions.length - 1 !== devices.length || showAll) && <h2 className="text-blue-200">Showing {showAll ? ` all ${devices.length + 1} sessions` : `${devices.length + 1} active sessions only`}. Show <Link to="#all-sessions" className="text-blue-600" onClick={toggleAll}>{showAll ? `active sessions only` : `all session`}</Link>.</h2>}

@@ -18,12 +18,12 @@ export const SidePanelValues = [
         link: "",
     },
     {
-        name: "Personal Info",
+        name: "Personal Profile",
         icon: <Contact2 />,
         link: "profile",
     },
     {
-        name: "Login Info",
+        name: "Login Details",
         icon: <Key />,
         link: "login",
     },
@@ -33,7 +33,7 @@ export const SidePanelValues = [
         link: "contact",
     },
     {
-        name: "Security",
+        name: "Password & Security",
         icon: <ShieldCheck />,
         link: "security",
     },
@@ -56,7 +56,7 @@ function SidePanel({ className, containerClass }: SidePanelProps) {
 
     return (
         <div className={twMerge(classNames(
-            "flex-1 max-w-xs sticky top-[72px] hidden flex-col h-[calc(100dvh_-_72px)] min-w-[220px] lg:flex",
+            "flex-1 max-w-xs sticky top-[72px] hidden flex-col h-[calc(100dvh_-_72px)] min-w-[240px] lg:flex",
             containerClass,
         ))}>
             <aside className={twMerge(classNames(
@@ -66,8 +66,8 @@ function SidePanel({ className, containerClass }: SidePanelProps) {
                 {SidePanelValues.map(item => <SideButton key={item.name} to={item.link} icon={item.icon} name={item.name} />)}
             </aside>
             <div className="flex flex-nowrap pl-8 gap-8 mt-auto pb-2 text-xs">
-                <a href={`https://devflikr.com/u/${user.index}/privacy`} target="_blank" rel="noopener noreferrer">Privacy</a>
-                <a href={`https://devflikr.com/u/${user.index}/terms`} target="_blank" rel="noopener noreferrer">Terms</a>
+                <a href={`https://devflikr.com/u/${user.index}/about/privacy`} target="_blank" rel="noopener noreferrer">Privacy</a>
+                <a href={`https://devflikr.com/u/${user.index}/about/terms`} target="_blank" rel="noopener noreferrer">Terms</a>
                 <a href={`https://support.devflikr.com/u/${user.index}/myaccount?ref=myaccount`} target="_blank" rel="noopener noreferrer">Help</a>
             </div>
         </div>

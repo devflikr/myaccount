@@ -1,13 +1,15 @@
 import React from 'react';
 import { Contact2, Home, MonitorSmartphone, ShieldCheck } from 'lucide-react';
+import uuid from '../../core/utils/uuid';
 
 
 export interface SearchQueries {
     name: string;
     icon?: React.ReactNode;
-    link?: string;
+    link: string;
     desc?: string;
-    onClick?: () => void;
+    key?: string;
+    onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => boolean | undefined | null;
 }
 
 const searchQueries: SearchQueries[] = [
@@ -19,7 +21,7 @@ const searchQueries: SearchQueries[] = [
     {
         name: "Personal Info",
         icon: <Contact2 />,
-        link: "personal-info",
+        link: "profile",
     },
     {
         name: "Security",
@@ -32,5 +34,7 @@ const searchQueries: SearchQueries[] = [
         link: "devices",
     },
 ];
+
+searchQueries.forEach(element => element.key = uuid());
 
 export default searchQueries;

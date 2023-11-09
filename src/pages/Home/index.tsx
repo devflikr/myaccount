@@ -25,29 +25,29 @@ function HomePage() {
                 <HomeItem
                     to="profile"
                     image="/assets/profile.png"
-                    title="Personal Info"
-                    desc="Access and control your personal information, including the option to choose what details, such as contact information, are visible to others for easy communication. Additionally, view a concise overview of your profiles."
+                    title="Personal Profile"
+                    desc="You can modify your name, gender, and birthday, and these particulars will be displayed on your profile page."
                     footer="Edit your profile"
                 />
                 <HomeItem
                     to="login"
                     image="/assets/login.png"
-                    title="Login Info"
-                    desc="Manage and oversee your login information, with the ability to determine which details are visible to others for seamless access. Additionally, gain a streamlined summary of your profiles for quick reference."
+                    title="Login Details"
+                    desc="You have the option to revise your username, which serves as your login credential for accessing your account. Additionally, other users can utilize it to locate your profile."
                     footer="Edit your username"
                 />
                 <HomeItem
                     to="contact"
                     image="/assets/contact.png"
                     title="Contact Info"
-                    desc="Administer and oversee your contact information, allowing you to decide which details are visible to others for efficient communication. Furthermore, access a condensed overview of your contact details for convenient reference."
+                    desc="Revise your contact information. This information can serve as a means to regain access to your account in the event that you forget your password. These details are kept private and are not visible to other users."
                     footer="Edit your phone"
                 />
                 <HomeItem
                     to="security"
                     image="/assets/security.png"
-                    title="Security"
-                    desc="Manage your security settings and options. You can customize your preferences to ensure your information is protected and secure. Additionally, review a summary of your current security measures."
+                    title="Password & Security"
+                    desc="Update your password regularly to prevent unauthorized access. Be sure to generate a strong, secure password."
                     footer="Edit your password"
                 />
                 <HomeItem
@@ -61,7 +61,7 @@ function HomePage() {
                     to="account"
                     image="/assets/account.png"
                     title="Account"
-                    desc="Explore your connected devices and take action if needed. You have the ability to review and remove any devices that are linked to your account for added control and security."
+                    desc="You can review your account information such as creation date, last update date, and verification status. Additionally, you have the option to delete your account from this section."
                     footer="Manage your account"
                 />
                 <HomeItem

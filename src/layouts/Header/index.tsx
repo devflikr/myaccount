@@ -1,12 +1,13 @@
 import HeaderSearch from './Search';
 import HeaderAvatar from '../../FlikrUI/lib/HeaderAvatar';
 import useRedirectAuth from '../../FlikrUI/hooks/useRedirectAuth';
-import { TbHelpHexagon } from "react-icons/tb";
-import { AiOutlineSearch } from 'react-icons/ai';
 import { useScrollPosition } from "react-unique-hooks";
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+import HeaderApps from '../../FlikrUI/lib/HeaderApps';
+import { BadgeHelp, Search } from 'lucide-react';
+import Tippy from '@tippyjs/react';
 
 function Header() {
 
@@ -22,11 +23,10 @@ function Header() {
             </Link>
             <HeaderSearch />
             <div className="inline-flex items-center">
-                <div className="inline-flex flex-nowrap gap-4 items-center">
-                    <button type="button" className="cs-b-round"><AiOutlineSearch /></button>
-                    <button type="button" className="cs-b-round"><TbHelpHexagon /></button>
-                </div>
-                <div className="inline-flex justify-end items-center min-w-[90px] ml-3">
+                <div className="inline-flex flex-nowrap gap-2 items-center">
+                    <Tippy content="Search"><button type="button" className="cs-b-round inline-flex md:hidden"><Search size={20} absoluteStrokeWidth /></button></Tippy>
+                    <Tippy content="Get help"><Link to={`https://support.devflikr.com/u/${/*user.index*/0}/myaccount?ref=myaccount`} className="cs-b-round"><BadgeHelp size={20} absoluteStrokeWidth /></Link></Tippy>
+                    <HeaderApps className="cs-b-round" />
                     <HeaderAvatar>
                         <button className="cs-bg-3 hover:cs-bg-4 transition-all text-white px-5 py-2 rounded" onClick={signinLink}>Sign in</button>
                     </HeaderAvatar>

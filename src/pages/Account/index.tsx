@@ -19,7 +19,7 @@ function AccountPage() {
                 <img className="w-16 aspect-square" src="/assets/account.png" alt="Account" />
                 <h1 className="text-gray-300 font-medium text-center">
                     <span className="text-red-600 text-2xl font-bold">Account</span><br />
-                    Secure your account by frequently updating your account password.
+                    Access a log of recent account modifications along with additional details.
                 </h1>
             </header>
             <Content className="pt-5 my-10 px-2">

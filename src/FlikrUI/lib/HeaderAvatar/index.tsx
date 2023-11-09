@@ -2,19 +2,19 @@ import Tippy from '@tippyjs/react';
 import classNames from 'classnames';
 import React, { useState } from 'react';
 import { useAuthCurrentUser } from "react-devflikrauth-hooks";
-import { LuChevronDown, LuChevronUp } from "react-icons/lu";
 import { twMerge } from "tailwind-merge";
 import ExtendUserAccounts from './ExtendUserAccounts';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 export interface HeaderAvatarProps {
     children?: React.ReactNode;
 }
 
 function HeaderAvatar({ children }: HeaderAvatarProps) {
+
     const [user, loading] = useAuthCurrentUser();
 
     const [extend, setExtend] = useState(false);
-
 
     if (loading) return null;
 
@@ -29,7 +29,7 @@ function HeaderAvatar({ children }: HeaderAvatarProps) {
                 }
             ))} onClick={() => setExtend(bool => !bool)}>
                 <img src={user.profile} alt={user.username} className="h-full rounded-full" />
-                <span className="mr-0">{extend ? <LuChevronUp /> : <LuChevronDown />}</span>
+                <span className="mr-0">{extend ? <ChevronUp size={20} absoluteStrokeWidth /> : <ChevronDown size={20} absoluteStrokeWidth />}</span>
             </button>
         </Tippy >
         <ExtendUserAccounts extend={extend} setExtend={setExtend} />
