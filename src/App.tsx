@@ -39,7 +39,7 @@ const MainApp = () => {
 
     if (loading) return <LazyLoader />;
 
-    if (!user) return window.location.href = "https://devflikr.com";
+    // if (!user) return window.location.href = "https://devflikr.com";
 
     return (<>
         <ScrollToTop />
