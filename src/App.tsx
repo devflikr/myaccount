@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useAuthCurrentUser } from "react-devflikrauth-hooks";
 import SidePanel from "./layouts/SidePanel";
 import Header from "./layouts/Header";
-import Initialize from "./FlikrUI/Initialize";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/Home";
 import PersonalInfoPage from "./pages/PersonalInfo";
@@ -14,6 +13,7 @@ import DevicesPage from "./pages/Devices";
 import { useTimeout } from "react-unique-hooks";
 import ScrollToTop from "./components/ScrollToTop";
 import NotFOundPage from "./pages/NotFound";
+import { Initialize } from "flikrui";
 
 function App() {
 

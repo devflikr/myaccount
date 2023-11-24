@@ -1,13 +1,11 @@
 import HeaderSearch from './Search';
-import HeaderAvatar from '../../FlikrUI/lib/HeaderAvatar';
-import useRedirectAuth from '../../FlikrUI/hooks/useRedirectAuth';
 import { useScrollPosition } from "react-unique-hooks";
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import HeaderApps from '../../FlikrUI/lib/HeaderApps';
 import { BadgeHelp, Search } from 'lucide-react';
 import Tippy from '@tippyjs/react';
+import { HeaderApps, HeaderAvatar, useRedirectAuth } from 'flikrui';
 
 function Header() {
 
