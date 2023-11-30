@@ -66,9 +66,9 @@ function SidePanel({ className, containerClass }: SidePanelProps) {
                 {SidePanelValues.map(item => <SideButton key={item.name} to={item.link} icon={item.icon} name={item.name} />)}
             </aside>
             <div className="flex flex-nowrap pl-8 gap-8 mt-auto pb-2 text-xs">
-                <a href={`https://devflikr.com/u/${user.index}/about/privacy`} target="_blank" rel="noopener noreferrer">Privacy</a>
-                <a href={`https://devflikr.com/u/${user.index}/about/terms`} target="_blank" rel="noopener noreferrer">Terms</a>
-                <a href={`https://support.devflikr.com/u/${user.index}/myaccount?ref=myaccount`} target="_blank" rel="noopener noreferrer">Help</a>
+                <a href={`https://devflikr.com/about/privacy?auth=${user.index}`} target="_blank" rel="noopener noreferrer">Privacy</a>
+                <a href={`https://devflikr.com/about/terms?auth=${user.index}`} target="_blank" rel="noopener noreferrer">Terms</a>
+                <a href={`https://support.devflikr.com/myaccount?auth=${user.index}&_refer=myaccount.devflikr.com`} target="_blank" rel="noopener noreferrer">Help</a>
             </div>
         </div>
     )

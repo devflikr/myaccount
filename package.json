@@ -15,7 +15,7 @@
     "classnames": "^2.3.2",
     "clsx": "^2.0.0",
     "devflikrauth": "^0.1.16",
-    "flikrui": "^0.0.5",
+    "flikrui": "^0.0.10",
     "framer-motion": "^10.16.4",
     "ldrs": "^1.0.1",
     "lucide-react": "^0.290.0",

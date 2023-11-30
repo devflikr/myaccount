@@ -13,7 +13,7 @@ import DevicesPage from "./pages/Devices";
 import { useTimeout } from "react-unique-hooks";
 import ScrollToTop from "./components/ScrollToTop";
 import NotFOundPage from "./pages/NotFound";
-import { Initialize } from "flikrui";
+import { InitRouterPath } from "flikrui";
 
 function App() {
 
@@ -45,7 +45,7 @@ const MainApp = () => {
         <ScrollToTop />
         <Header />
         <div className="flex flex-nowrap items-start min-h-[calc(100dvh_-_72px)] relative">
-            {user && <>
+            {user ? <>
                 <SidePanel />
                 <div className="flex-[4] p-5 md:px-20">
                     <main className="relative w-full lg:max-w-3xl">
@@ -61,7 +61,13 @@ const MainApp = () => {
                         </Routes>
                     </main>
                 </div>
-            </>}
+            </> : <div className="flex-[4] p-5 md:px-20">
+                <main className="relative w-full lg:max-w-3xl flex justify-center items-center flex-col mx-auto min-h-[70vh] gap-7">
+                    <img src="/assets/access-denied.svg" alt="Access denied" />
+                    <h2 className="text-3xl font-bold">You are not signed in.</h2>
+                    <h3 className="text-gray-300 font-bold">Signin to access Account Settings.</h3>
+                </main>
+            </div>}
         </div>
         <footer className="text-center text-xs text-gray-500 font-bold">
             © {new Date().getFullYear() !== 2023 ? "2023 - " : ""}{new Date().getFullYear()} DevFlikr Organization • All Rights Reserved.
@@ -72,7 +78,7 @@ const MainApp = () => {
 
 
 const InitializeApp = ({ index }: { index?: number }) => {
-    return (<><Initialize index={index} /><MainApp /></>);
+    return (<><InitRouterPath index={index} /><MainApp /></>);
 };
 
 const LazyLoader = () => {

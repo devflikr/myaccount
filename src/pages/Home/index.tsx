@@ -65,7 +65,7 @@ function HomePage() {
                     footer="Manage your account"
                 />
                 <HomeItem
-                    to={`https://support.devflikr.com/u/${user.index}/myaccount?ref=myaccount`}
+                    to={`https://support.devflikr.com/myaccount?auth=${user.index}&_refer=myaccount.devflikr.com`}
                     image="/assets/help-and-support.png"
                     title="Help and Support"
                     desc="Access resources for assistance with your account. Find helpful information and resources to address any concerns or questions you may have regarding your account. Additionally, explore options for contacting support if further assistance is needed."

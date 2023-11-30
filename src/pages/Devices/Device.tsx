@@ -10,7 +10,7 @@ export interface DeviceBoxProps extends UserSession, React.HTMLAttributes<HTMLDi
     remove: (token: string) => void;
 }
 
-function DeviceBox({ device, platform, browser, os, deviceToken, createdAt, index, current, ip, remove, sessionToken, expiredAt }: DeviceBoxProps) {
+function DeviceBox({ device, platform, browser, os, deviceToken, createdAt, index, current, remove, sessionToken, expiredAt }: DeviceBoxProps) {
 
     const deviceName = [device, platform, os, browser].filter(item => !!item).join(" - ").trim() || "Unknown";
     return (
@@ -35,7 +35,7 @@ function DeviceBox({ device, platform, browser, os, deviceToken, createdAt, inde
                                     <li className="text-sm capitalize text-teal-300"><span className="text-gray-400 font-semibold">Platform:</span> {platform || "Unknown"}</li>
                                     <li className="text-sm capitalize text-teal-300"><span className="text-gray-400 font-semibold">Operating System:</span> {os || "Unknown"}</li>
                                     <li className="text-sm capitalize text-teal-300"><span className="text-gray-400 font-semibold">Browser:</span> {browser || "Unknown"}</li>
-                                    <li className="text-sm capitalize text-teal-300"><span className="text-gray-400 font-semibold">IP Address:</span> {ip || "Unknown"}</li>
+                                    {/* <li className="text-sm capitalize text-teal-300"><span className="text-gray-400 font-semibold">IP Address:</span> {ip || "Unknown"}</li> */}
                                 </ul>
                             </h2>
                         </div>

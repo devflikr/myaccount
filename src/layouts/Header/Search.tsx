@@ -4,15 +4,20 @@ import searchQueries from './searchQueries';
 import { Link, To } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';
+import { useAuthCurrentUser } from 'react-devflikrauth-hooks';
 
 
 function HeaderSearch() {
     const [query, setQuery] = useState("");
     const [focus, setFocus] = useState(false);
 
+    const [user] = useAuthCurrentUser();
+
     const results = searchQueries.filter((item) => query.trim() && item.name.toLowerCase().includes(query.trim().toLowerCase()));
 
     const inputRef = useRef<HTMLInputElement>(null);
+
+    if (!user) return null;
 
     return (
         <div className="w-full max-w-2xl h-12 relative hidden md:block">
@@ -44,7 +49,7 @@ function HeaderSearch() {
                 {(focus || query.trim()) && <div className="max-h-[70dvh] overflow-auto">
                     {query.trim() && (results.length ? results.map(res => <SearchResult
                         key={res.name}
-                        to={res.link}
+                        to={(res.link.includes(":auth") ? res.link.replace(":auth", "" + user?.index) : res.link)}
                         name={res.name}
                         icon={res.icon}
                         onClick={(e) => {

@@ -38,12 +38,12 @@ function AccountPage() {
                 />
                 <InfoTab
                     name="Email verification status"
-                    value={!user.isVerified ? <span className="text-green-500 inline-flex gap-5"><BadgeCheck /> Verified</span> : <span className="text-red-500 inline-flex gap-5"><BadgeX /> Unverified</span>}
+                    value={user.isVerified ? <span className="text-green-500 inline-flex gap-5"><BadgeCheck /> Verified</span> : <span className="text-red-500 inline-flex gap-5"><BadgeX /> Unverified</span>}
                 />
             </Content>
             <Content className="p-7 my-10 bg-[#f002] shadow-[0_0_0_2px_#f009]">
                 <h2 className="mb-10 text-lg text-gray-300">Delete Account</h2>
-                <h3 className="">Account Deletion will be made available soon.</h3>
+                <h3 className="">Account Deletion will be made available soon. For now you can just leave using this site. Rest assured, your data will not be shared with any third-party companies.</h3>
             </Content>
         </>
     );

@@ -10,7 +10,7 @@ import 'tippy.js/dist/tippy.css';
 import "oasismenu/themes/space.css";
 import 'tippy.js/animations/shift-away.css';
 
-import 'flikrui/dist/styles.css';
+import 'flikrui/dist/media-styled.css';
 import './styles/index.scss';
 import { Toaster } from 'react-hot-toast';
 

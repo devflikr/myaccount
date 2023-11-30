@@ -1,5 +1,5 @@
 import React from 'react';
-import { Contact2, Home, MonitorSmartphone, ShieldCheck } from 'lucide-react';
+import { BadgeCheck, BadgeHelp, Contact2, Home, Key, MonitorSmartphone, PhoneCall, ShieldCheck } from 'lucide-react';
 import uuid from '../../core/utils/uuid';
 
 
@@ -19,12 +19,57 @@ const searchQueries: SearchQueries[] = [
         link: "",
     },
     {
-        name: "Personal Info",
+        name: "Personal Profile",
         icon: <Contact2 />,
         link: "profile",
     },
     {
-        name: "Security",
+        name: "Full Name",
+        icon: <Contact2 />,
+        link: "profile",
+    },
+    {
+        name: "First Name",
+        icon: <Contact2 />,
+        link: "profile",
+    },
+    {
+        name: "Last Name",
+        icon: <Contact2 />,
+        link: "profile",
+    },
+    {
+        name: "Birthday",
+        icon: <Contact2 />,
+        link: "profile",
+    },
+    {
+        name: "Gender",
+        icon: <Contact2 />,
+        link: "profile",
+    },
+    {
+        name: "Login Details",
+        icon: <Key />,
+        link: "login",
+    },
+    {
+        name: "Username",
+        icon: <Key />,
+        link: "login",
+    },
+    {
+        name: "Contact Info",
+        icon: <PhoneCall />,
+        link: "contact",
+    },
+    {
+        name: "Phone Number",
+        icon: <PhoneCall />,
+        link: "contact",
+    },
+    {
+        name: "Password & Security",
         icon: <ShieldCheck />,
         link: "security",
     },
@@ -32,6 +77,16 @@ const searchQueries: SearchQueries[] = [
         name: "Devices",
         icon: <MonitorSmartphone />,
         link: "devices",
+    },
+    {
+        name: "Account",
+        icon: <BadgeCheck />,
+        link: "devices",
+    },
+    {
+        name: "Help",
+        icon: <BadgeHelp />,
+        link: "https://support.devflikr.com/myaccount?auth=:auth&_refer=myaccount.devflikr.com",
     },
 ];
 
